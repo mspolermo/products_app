@@ -4,10 +4,12 @@
 
 export enum AppRoutes {
   MAIN = 'main',
-  ABOUT = 'about',
+  CREATE = 'create',
+  EDIT = 'edit',
   NOT_FOUND = 'not_found',
 }
 
 export const getRouteMain = () => '/';
-export const getRouteAbout = () => '/about';
+export const getRouteCreate = () => '/create';
+export const getRouteEdit = (id: string) => `/edit/${id}`;;
 export const getRouteNotFound = () => '/not_found';

@@ -2,13 +2,15 @@
  * Конфигурация роутинга приложения
 */
 
-import { AboutPage } from '@/pages/AboutPage';
+import { CreatePage } from '@/pages/CreatePage';
+import { EditPage } from '@/pages/EditPage';
 import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import {
     AppRoutes,
     getRouteMain,
-    getRouteAbout,
+    getRouteCreate,
+    getRouteEdit,
 } from '@/shared/const/router';
 import { RouteProps } from 'react-router-dom';
 
@@ -17,9 +19,13 @@ export const RouteConfig: Record<AppRoutes, RouteProps> = {
         path: getRouteMain(),
         element: <MainPage />,
     },
-    [AppRoutes.ABOUT]: {
-        path: getRouteAbout(),
-        element: <AboutPage />,
+    [AppRoutes.CREATE]: {
+        path: getRouteCreate(),
+        element: <CreatePage />,
+    },
+    [AppRoutes.EDIT]: {
+        path: getRouteEdit(':id'),
+        element: <EditPage />,
     },
     [AppRoutes.NOT_FOUND]: {
         path: '*',
