@@ -4,7 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { ErrorBoundary } from './app/providers/ErrorBoundary';
 import { StoreProvider } from './app/providers/StoreProvider/ui/StoreProvider';
 import App from '@/app/App.tsx'
-import '@/app/styles/index.css';
 
 const container = document.getElementById('root');
 

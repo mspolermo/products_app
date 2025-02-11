@@ -1,7 +1,6 @@
 import { AppDispatch, RootState } from "@/app/providers/StoreProvider/config/store";
-import { ProductsList } from "@/entities/product";
-import { deleteProduct } from "@/entities/product/model/services/deleteProduct";
-import { fetchProducts } from "@/entities/product/model/services/fetchProducts";
+import { ProductsList, deleteProduct, fetchProducts } from "@/entities/product";
+import { Button } from "@/shared/ui/Button/Button";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -21,7 +20,7 @@ const GetProductsList: React.FC = () => {
   return (
     <div>
       <h1>Список продукции</h1>
-      <button onClick={() => navigate("/create")}>Создать тип продукции</button>
+      <Button variant='yellow' onClick={() => navigate("/create")}>Создать тип продукции</Button>
       <ProductsList productsList={products} onEdit={editHandler} onDelete={deleteHandler}/>
     </div>
   );

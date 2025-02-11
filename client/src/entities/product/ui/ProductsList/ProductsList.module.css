@@ -2,7 +2,8 @@
   margin-left: auto;
   margin-right: auto;
   min-width: 600px;
+  background-color: var(--contrast-100);
   & th, td {
-    border: 1px solid black;
+    border: 1px solid var(--contrast-600);
   }
 }
