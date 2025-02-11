@@ -1,0 +1,8 @@
+.table {
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 600px;
+  & th, td {
+    border: 1px solid black;
+  }
+}

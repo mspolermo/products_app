@@ -1,11 +1,7 @@
-import { memo } from 'react';
+import { GetProductsList } from "@/features/getProductsList";
 
-const MainPage = memo(() => {
-  return (
-    <section>
-      <h2>Главная страница</h2>
-    </section>
-  );
-});
+const MainPage = () => {
+  return (<GetProductsList />);
+};
 
 export default MainPage;
