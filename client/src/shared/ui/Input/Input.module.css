@@ -1,0 +1,23 @@
+.InputWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.label {
+  color: var(--contrast-600);
+}
+
+.required .label::after {
+  content: '*';
+  color: var(--error-400);
+  margin-left: 4px;
+}
+
+.input {
+  min-width: 500px;
+  border: 1px solid var(--contrast-500);
+  border-radius: 6px;
+  padding: 8px 16px;
+  color: var(--contrast-600);
+}

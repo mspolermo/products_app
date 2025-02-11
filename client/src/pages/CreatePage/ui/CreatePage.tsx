@@ -4,7 +4,7 @@ import { memo } from 'react';
 
 const CreatePage = memo(() => {
   return (
-    <EditLayout>
+    <EditLayout title='Создание типа продукции'>
       <CreateProduct />
     </EditLayout>
   );

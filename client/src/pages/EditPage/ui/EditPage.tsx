@@ -6,7 +6,7 @@ const EditPage = memo(() => {
   const { id } = useParams<{ id: string }>();
 
   return (
-    <EditLayout>
+    <EditLayout title='Редактирование типа продукции'>
       <h2>Редактирование { id }</h2>
     </EditLayout>
   );
