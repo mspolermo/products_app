@@ -11,4 +11,6 @@ declare module '*.svg' {
   export default ReactComponent;
 }
 
+declare const __API__: string;
+
 /// <reference types="vite/client" />
