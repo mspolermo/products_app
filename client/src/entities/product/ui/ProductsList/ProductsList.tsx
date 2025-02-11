@@ -28,9 +28,9 @@ const ProductsList = (props: Props) => {
         </tr>
       </thead>
       <tbody>
-        {productsList.map((product) => (
+        {productsList.map((product, index) => (
           <tr key={product.id}>
-            <td>{product.id}</td>
+            <td>{index + 1}</td>
             <td>{product.packsNumber}</td>
             <td>{product.packageType}</td>
             <td>{product.createdAt}</td>

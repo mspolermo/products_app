@@ -1,4 +1,5 @@
 import ProductsList from './ui/ProductsList/ProductsList'
+import ProductEditable from './ui/ProductEditable/ProductEditable'
 import productReducer from "./model/slices/productSlice";
 
 import { createProduct } from "./model/services/createProduct";
@@ -8,6 +9,7 @@ import { updateProduct } from "./model/services/updateProduct";
 
 export { 
   ProductsList,
+  ProductEditable,
   productReducer,
   createProduct,
   deleteProduct,

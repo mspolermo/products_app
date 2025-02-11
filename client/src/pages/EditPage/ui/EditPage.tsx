@@ -1,3 +1,4 @@
+import { EditLayout } from '@/shared/layouts/EditLayout/EditLayout';
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -5,9 +6,9 @@ const EditPage = memo(() => {
   const { id } = useParams<{ id: string }>();
 
   return (
-    <section>
+    <EditLayout>
       <h2>Редактирование { id }</h2>
-    </section>
+    </EditLayout>
   );
 });
 
