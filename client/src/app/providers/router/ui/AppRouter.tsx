@@ -5,13 +5,13 @@
 import { Suspense, memo, useCallback } from 'react';
 import { Route, Routes, RouteProps } from 'react-router-dom';
 import { RouteConfig } from '../config/routeConfig';
-import { Loader } from '@/shared/ui/Loader';
+import { PageLoader } from '@/widgets/PageLoader';
 
 
 const AppRouter = memo(() => {
   const renderWithWrapper = useCallback((route: RouteProps) => {
     const element = (
-      <Suspense fallback={<Loader />}>{route.element}</Suspense>
+      <Suspense fallback={<PageLoader />}>{route.element}</Suspense>
     );
     return (
       <Route

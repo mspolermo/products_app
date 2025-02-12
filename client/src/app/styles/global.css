@@ -2,6 +2,7 @@
 
 :root {
   --font-primary: 'Montserrat', sans-serif;
+  --overlay: rgba(0 0 0 / 60%);
   --main: #F5F5F5;
   --primary-400: #F7EE55;
   --primary-600: #6184FF;
@@ -11,6 +12,8 @@
   --contrast-500: #AAAAAA;
   --contrast-600: #000000;
   --error-400: #DA1515;
+  --modal-z-index: 10;
+  --overlay-z-index: 9;
 } 
 
 html {

@@ -16,7 +16,7 @@ const CreateProduct = () => {
       await dispatch(createProduct(data));
       navigate(getRouteMain());
     } catch (error) {
-      setError("Ошибка создания продукта: " + (error as Error).message)
+      setError("Ошибка создания продукта: " + error)
       console.error("Ошибка создания продукта:", error);
     }
   };
