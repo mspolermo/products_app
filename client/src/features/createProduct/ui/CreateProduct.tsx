@@ -1,19 +1,24 @@
-import { AppDispatch, RootState } from "@/app/providers/StoreProvider/config/store";
-import { ProductEditable, ProductsList, createProduct, deleteProduct, fetchProducts } from "@/entities/product";
+import { ProductEditable, createProduct } from "@/entities/product";
 import { ProductType } from "@/entities/product/model/types/types";
 import { getRouteMain } from "@/shared/const/router";
-import { Button } from "@/shared/ui/Button/Button";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const CreateProduct: React.FC = () => {
-  const dispatch = useDispatch();
+const CreateProduct = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const [error, setError] = useState<string | undefined>()
 
-  const onSubmit = () => {
-    //dispatch(createProduct(data));
-    navigate(getRouteMain());
+  const onSubmit = async (data: ProductType) => {
+    setError(undefined)
+    try {
+      await dispatch(createProduct(data));
+      navigate(getRouteMain());
+    } catch (error) {
+      setError("Ошибка создания продукта: " + (error as Error).message)
+      console.error("Ошибка создания продукта:", error);
+    }
   };
 
   const onReject = () => {
@@ -21,7 +26,7 @@ const CreateProduct: React.FC = () => {
   }
   
   return (
-    <ProductEditable isCreateView onSubmit={onSubmit} onReject={onReject}/>
+    <ProductEditable onSubmit={onSubmit} onReject={onReject} error={error}/>
   );
 };
 

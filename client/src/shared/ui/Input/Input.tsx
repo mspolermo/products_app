@@ -1,55 +1,36 @@
-import React, { InputHTMLAttributes, memo } from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import cls from './Input.module.css';
+import { forwardRef, InputHTMLAttributes } from "react";
+import { classNames, Mods } from "@/shared/lib/classNames/classNames";
+import cls from "./Input.module.css";
 
-type HTMLInputProps = Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  'value' | 'onChange'
->;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "value">;
 
 interface InputProps extends HTMLInputProps {
   className?: string;
-  value?: string | number;
   label: string;
-  onChange?: (value: string) => void;
+  required?: boolean;
+  error?: string;
 }
 
-export const Input = memo((props: InputProps) => {
-  const {
-    className,
-    value,
-    onChange,
-    type = 'text',
-    placeholder,
-    label,
-    required,
-    ...otherProps
-  } = props;
+export const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type = "text", placeholder, label, required, error, ...otherProps }, ref) => {
+    const mods: Mods = {
+      [cls.required]: required,
+      [cls.error]: !!error,
+    };
 
-  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange?.(e.target.value);
-  };
+    return (
+      <div className={classNames(cls.InputWrapper, mods, [className])}>
+        <label className={cls.label}>{label}</label>
+        <input
+          ref={ref}
+          type={type}
+          className={cls.input}
+          placeholder={placeholder}
+          {...otherProps}
+        />
+      </div>
+    );
+  }
+);
 
-
-  const mods: Mods = {
-    [cls.required]: required
-  };
-
-  return (
-    <div
-      className={classNames(cls.InputWrapper, mods, [
-        className,
-      ])}
-    >
-      <label className={cls.label}>{label}</label>
-      <input
-        type={type}
-        value={value}
-        onChange={onChangeHandler}
-        className={cls.input}
-        placeholder={placeholder}
-        {...otherProps}
-      />
-    </div>
-  );
-});
+Input.displayName = "Input";

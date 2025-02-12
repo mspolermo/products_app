@@ -6,6 +6,7 @@ import { createProduct } from "./model/services/createProduct";
 import { deleteProduct } from "./model/services/deleteProduct";
 import { fetchProducts } from "./model/services/fetchProducts";
 import { updateProduct } from "./model/services/updateProduct";
+import { fetchProductById } from "./model/services/fetchProductById";
 
 export { 
   ProductsList,
@@ -14,5 +15,6 @@ export {
   createProduct,
   deleteProduct,
   fetchProducts,
-  updateProduct
+  updateProduct,
+  fetchProductById
 };

@@ -9,5 +9,7 @@ export interface ProductType {
 
 export interface ProductState {
   products: ProductType[];
+  product: ProductType | null;
   loading: boolean;
+  error: string | null;
 }

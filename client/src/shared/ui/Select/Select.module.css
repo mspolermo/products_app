@@ -21,3 +21,11 @@
   padding: 8px 16px;
   color: var(--contrast-600);
 }
+
+.error .label {
+  color: var(--error-400);
+}
+
+.error .select {
+  border-color: var(--error-400);
+}

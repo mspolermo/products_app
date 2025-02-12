@@ -1,11 +1,8 @@
-import React, { SelectHTMLAttributes, memo } from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import cls from './Select.module.css';
+import { forwardRef, SelectHTMLAttributes } from "react";
+import { classNames, Mods } from "@/shared/lib/classNames/classNames";
+import cls from "./Select.module.css";
 
-type HTMLSelectProps = Omit<
-  SelectHTMLAttributes<HTMLSelectElement>,
-  'value' | 'onChange' | 'readOnly'
->;
+type HTMLSelectProps = Omit<SelectHTMLAttributes<HTMLSelectElement>, "value">;
 
 interface Option {
   value: string | number;
@@ -14,51 +11,37 @@ interface Option {
 
 interface SelectProps extends HTMLSelectProps {
   className?: string;
-  value?: string | number;
   label: string;
   options: Option[];
-  onChangeValue?: (value: string) => void;
-  readonly?: boolean;
+  error?: string;
 }
 
-export const Select = memo((props: SelectProps) => {
-  const {
-    className,
-    value,
-    onChangeValue,
-    label,
-    options,
-    required,
-    readonly,
-    ...otherProps
-  } = props;
+export const Select = forwardRef<HTMLSelectElement, SelectProps>(
+  ({ className, label, options, required, error, ...otherProps }, ref) => {
+    const mods: Mods = {
+      [cls.required]: required,
+      [cls.error]: !!error,
+    };
 
-  const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    onChangeValue?.(e.target.value);
-  };
+    return (
+      <div className={classNames(cls.SelectWrapper, mods, [className])}>
+        <label className={cls.label}>{label}</label>
+        <div className={cls.selectContainer}>
+          <select ref={ref} className={cls.select} {...otherProps}>
+            <option value="" disabled hidden>
+              Выберите вариант
+            </option>
+            {options.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+          <span className={cls.arrow}></span>
+        </div>
+      </div>
+    );
+  }
+);
 
-  const mods: Mods = {
-    [cls.required]: required,
-    [cls.readonly]: readonly,
-  };
-
-  return (
-    <div className={classNames(cls.SelectWrapper, mods, [className])}>
-      <label className={cls.label}>{label}</label>
-      <select
-        className={cls.select}
-        value={value}
-        required={required}
-        onChange={onChangeHandler}
-        disabled={readonly}
-        {...otherProps}
-      >
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
-});
+Select.displayName = "Select";
