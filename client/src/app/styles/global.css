@@ -8,9 +8,11 @@
   --primary-600: #6184FF;
   --contrast-100: #fff;
   --contrast-200: #FAFAFA;
+  --contrast-300: #E0E0E0;
   --contrast-400: #e4e6f9;
   --contrast-500: #AAAAAA;
-  --contrast-600: #000000;
+  --contrast-600: #333;
+  --contrast-800: #000000;
   --error-400: #DA1515;
   --modal-z-index: 10;
   --overlay-z-index: 9;

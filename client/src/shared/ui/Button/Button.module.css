@@ -1,16 +1,16 @@
 .Button {
   padding: 13px 24px;
-  border: 1px solid var(--contrast-600);
+  border: 1px solid var(--contrast-800);
   border-radius: 10px;
   color: var(--contrast-100);
   font-weight: 600;
   font-size: 18px;
   line-height: 22px;
-  background-color: var(--contrast-600);
+  background-color: var(--contrast-800);
 }
 
 .black {
-  background-color: var(--contrast-600);
+  background-color: var(--contrast-800);
 }
 
 .red {
@@ -19,9 +19,17 @@
 
 .yellow {
   background-color: var(--primary-400);
-  color: var(--contrast-600);
+  color: var(--contrast-800);
 }
 
 .disabled {
   pointer-events: none;
+}
+
+.Button:hover {
+  filter: brightness(0.5);
+}
+
+.Button:active {
+  transform: translateY(1px);
 }

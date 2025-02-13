@@ -1,7 +1,82 @@
-.table {
-  min-width: 100%;
+.tableWrapper {
+  position: relative;
+}
+
+.tableContainer {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--contrast-300);
   background-color: var(--contrast-100);
-  & th, td {
-    border: 1px solid var(--contrast-600);
-  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  color: var(--contrast-600);
+}
+
+th, td {
+  padding: 10px 15px;
+  border: 1px solid var(--contrast-300);
+  text-align: start;
+  vertical-align: middle;
+}
+
+th {
+  font-weight: 500;
+  background-color: var(--contrast-100);
+  cursor: default;
+}
+
+tr:hover {
+  background-color: var(--contrast-200);
+}
+
+.archived {
+  font-weight: 500;
+}
+
+.active {
+  font-weight: 500;
+}
+
+.iconColumn {
+  width: 40px;
+}
+
+.iconCell {
+  display: flex;
+}
+
+.numCell {
+  max-width: 20px;
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.iconButton:hover {
+  transform: scale(1.1);
+}
+
+.questionMark {
+  border: 1px solid var(--contrast-800);
+  padding: 2px 4px;
+  border-radius: 100%;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.iconButton:active {
+  transform: translateY(1px);
 }

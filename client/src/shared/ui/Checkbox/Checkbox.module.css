@@ -41,7 +41,7 @@
 
 .label {
   margin-right: 80px;
-  color: var(--contrast-600);
+  color: var(--contrast-800);
 }
 
 .required .label::after {

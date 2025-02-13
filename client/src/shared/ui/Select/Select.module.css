@@ -5,7 +5,7 @@
 }
 
 .label {
-  color: var(--contrast-600);
+  color: var(--contrast-800);
 }
 
 .required .label::after {
@@ -19,7 +19,7 @@
   border: 1px solid var(--contrast-500);
   border-radius: 6px;
   padding: 8px 16px;
-  color: var(--contrast-600);
+  color: var(--contrast-800);
 }
 
 .error .label {
